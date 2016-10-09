@@ -50,6 +50,15 @@ label start:
     
     britta "Who the fuck are YOU??"
     
+    menu:
+        "I'm Red?":
+            britta "Oh okay."
+            
+        "idk":
+            britta "Get out of here!"
+    
+    britta "Anyway."
+    
     ## This ends the game.
 
     return
