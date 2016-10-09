@@ -8,6 +8,8 @@
 
 define e = Character('Eileen')
 
+define red = Character('Red', color='#b70505')
+
 image red main = "red_idle.png"
 
 ## The game starts here.
@@ -28,6 +30,8 @@ label start:
     ## These display lines of dialogue.
 
     "Hello, world."
+    
+    red "Hey!!"
 
     e "You've created a new Ren'Py game."
 
