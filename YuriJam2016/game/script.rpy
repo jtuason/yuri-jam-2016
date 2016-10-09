@@ -1,10 +1,21 @@
-﻿## skjdnfdkjfgnkjbn
+﻿## The script of the game goes in this file.
 
-## The script of the game goes in this file.
+## These transforms account for the widescreen format of the game, placing the
+## characters slightly in from the edges.
+## The negative xzoom flips a sprite horizontally.
+
+init:
+    transform leftish:
+        xpos .1
+        yalign 1.0
+    transform rightish:
+        xpos .6
+        yalign 1.0
+        xzoom -1.0
+
 
 ## Declare characters used by this game. The color argument colorizes the name
 ## of the character.
-
 
 define e = Character('Eileen')
 
@@ -25,15 +36,17 @@ label start:
     ## This shows a character sprite. A placeholder is used, but you can replace
     ## it by adding a file named "eileen happy.png" to the images directory.
     
-    show red main at left
+    show red main at leftish
 
     ## These display lines of dialogue.
 
     "Hello, world."
     
     red "Hey!!"
+    
+    show red main as red2 at rightish
 
-    e "You've created a new Ren'Py game."
+    red "Who are you??"
 
     e "Once you add a story, pictures, and music, you can release it to the world!"
 
