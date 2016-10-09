@@ -21,8 +21,6 @@ init:
 
 ## Characters
 
-#  define e = Character('Eileen')
-
 define red = Character('Red', color='#b70505')
 define britta = Character('Britta', color='#ff3300')
 define miralda = Character('Miralda')
