@@ -19,12 +19,12 @@ init:
 
 ## Characters
 
-define red = Character(’Red’, color=’#b70505’)
-define britta = Character(’Britta’, color=’#ff3300’)
-define miralda = Character(’Miralda’)
-define gieda = Character(’Gieda’)
-define saoirse = Character(’Saoirse’)
-define morgaine = Character(’Morgaine’)
+define red = Character('Red', color='#b70505')
+define britta = Character('Britta', color='#ff3300')
+define miralda = Character('Miralda')
+define gieda = Character('Gieda')
+define saoirse = Character('Saoirse')
+define morgaine = Character('Morgaine')
 
 
 ## Images
@@ -64,11 +64,12 @@ image britta laughing = "britta_laughing.png"
 image britta angry = "britta_angry.png"
 image britta uncomfortable = "britta_uncomfortable.png"
 image britta alarmed = "britta_alarmed.png"
-image britta frown = "britta_frowned.png"
+image britta frown = "britta_frown.png"
 image britta grin = "britta_grin.png"
 image britta puzzled = "britta_puzzled.png"
 image britta surprised = "britta_surprised.png"
 image britta devious = "britta_devious.png"
+image britta eyeroll = "britta_eyeroll.png"
 
 ## Saoirse
 image saoirse neutral = "saoirse_neutral.png"
@@ -96,16 +97,16 @@ image morgaine sad = "morgaine_sad.png"
 
 ## The game starts here.
 
-label gameStart:
+label start:
     
     scene frontGate
 
 
-    show miralda neutral
+    show miralda neutral at rightish
     miralda "And here we are! Fall Fling Hallow’s Eve Carnival. That wasn’t too bad a drive, now, was it?" 
 
 
-    show britta frown
+    show britta frown at left
     britta "If you don’t mind a billion miles of corn in every direction, yeah, it was great."
 
 
@@ -144,34 +145,32 @@ label gameStart:
     miralda "Should we do that first, or should we refuel with a quick bite?" 
 
 
-    choices: 
-    "Let’s make a plan.":
+    menu: 
+        "Let’s make a plan.":
+
+            show britta neutral
+            britta "I’ve got no idea what we’re doing, so let’s get all strategic and shit."
 
 
-    show britta neutral
-    britta "I’ve got no idea what we’re doing, so let’s get all strategic and shit."
+            show miralda neutral
+            miralda "Fair enough. Let’s go in and find a map or guide. I have our tickets right here." 
 
 
-    show miralda neutral
-    miralda "Fair enough. Let’s go in and find a map or guide. I have our tickets right here." 
+            jump meetGieda
 
 
-    jump label meetGieda
+        "Plans are for nerds. Let’s eat!":
+
+            show britta neutral
+            britta "I’m craving some crappy carnival food. I’m gonna find a candied apple stand and shove every one of them up my asshole." 
 
 
-    "Plans are for nerds. Let’s eat!":
+            show miralda neutral
+            miralda "I’m fond of hard cider, myself."
+            miralda "Let’s not dawdle, then. I have our tickets right here." 
 
 
-    show britta neutral
-    britta "I’m craving some crappy carnival food. I’m gonna find a candied apple stand and shove every one of them up my asshole." 
-
-
-    show miralda neutral
-    miralda "I’m fond of hard cider, myself."
-    miralda "Let’s not dawdle, then. I have our tickets right here." 
-
-
-    jump label meetSaorgaine
+            jump meetSaorgaine
 
 label meetGieda:
     
@@ -193,7 +192,7 @@ label meetGieda:
 
     show gieda angry
     gieda "Excuse me? Have we—"
-    show gieda shock
+    show gieda alarmed
     gieda "Wait… Miralda? Good gods, is that you?"
 
 
@@ -227,11 +226,11 @@ label meetGieda:
     gieda "Actually, Alice asked me to come. She and her family should be scattered around the carnival by now."
 
 
-    show miralda smile
+    show miralda amused
     miralda "She considers you family? What a sweetheart."
 
 
-    show britta eyeRoll
+    show britta eyeroll
     britta "What a nerd." 
     show britta neutral
     britta "Where is she, anyway? Charming some hapless maiden?" 
@@ -285,7 +284,7 @@ label meetGieda:
             miralda "Agreed. Lead the way, sweetheart." 
 
 
-            jump label meetSaorgaine
+            jump meetSaorgaine
 
 
         "Let’s check out that corn maze.":
@@ -295,7 +294,7 @@ label meetGieda:
             miralda "The corn maze? Well, all right. I’ll follow your lead." 
 
 
-            jump label cornmazeStart
+            jump cornmazeStart
 
 label meetSaorgaine:
     
@@ -392,7 +391,7 @@ label meetSaorgaine:
     morgaine "You know perfectly well that I didn’t."
 
 
-    show Saoirse smiling
+    show saoirse smiling
     saoirse "You were very sweet to me, back then. I always wanted to be around you."
 
 
@@ -651,7 +650,7 @@ label meetSaorgaine:
             britta "What? No! Get your own, you cheapskate!" 
 
 
-            jump scene meetGieda
+            jump meetGieda
 
 
         "Let’s check out that corn maze.":
@@ -661,7 +660,7 @@ label meetSaorgaine:
             miralda "The corn maze? Well, all right. I’ll follow your lead." 
 
 
-            jump label cornmazeStart
+            jump cornmazeStart
 
 
 label cornmazeStart:
