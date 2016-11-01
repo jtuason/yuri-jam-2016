@@ -2,7 +2,7 @@
 
 ## These transforms account for the widescreen format of the game, placing the
 ## characters slightly in from the edges.
-## yalign set to 1.0 snaps the image and its anchor to th ebottom of the screen.
+## yalign set to 1.0 snaps the image and its anchor to the bottom of the screen.
 ## The negative xzoom flips a sprite horizontally.
 
 ## Transforms
@@ -30,6 +30,9 @@ define morgaine = Character('Morgaine')
 ## Images
 
 ## Backgrounds
+# image foodStalls
+# image cornMaze
+# image frontGate
 
 ## CGs
 
