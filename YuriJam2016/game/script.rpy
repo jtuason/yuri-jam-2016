@@ -15,24 +15,35 @@ init:
         xpos .6
         yalign 1.0
         xzoom -1.0
+    transform leftShort:
+        xpos .1
+        yalign 1.0
+        zoom .8
+    transform centerShort:
+        xpos .3
+        yalign 1.0
+        zoom .8
 
+## Transitions
+
+define fastDissolve = Dissolve(.25)
 
 ## Characters
 
 define red = Character('Red', color='#b70505')
 define britta = Character('Britta', color='#ff3300')
-define miralda = Character('Miralda')
-define gieda = Character('Gieda')
-define saoirse = Character('Saoirse')
-define morgaine = Character('Morgaine')
+define miralda = Character('Miralda', color='#96197d')
+define gieda = Character('Gieda', color='#2a7c2e')
+define saoirse = Character('Saoirse', color='#912c3f')
+define morgaine = Character('Morgaine', color='#498425')
 
 
 ## Images
 
 ## Backgrounds
-# image foodStalls
-# image cornMaze
-# image frontGate
+image foodStalls = "bg_foodStalls.png"
+image cornMaze = "bg_cornfield.png"
+image frontGate = "bg_carnivalEntrance.png"
 
 ## CGs
 
@@ -105,10 +116,12 @@ label start:
 
 
     show miralda neutral at rightish
+    with dissolve
     miralda "And here we are! Fall Fling Hallow’s Eve Carnival. That wasn’t too bad a drive, now, was it?" 
 
 
-    show britta frown at left
+    show britta frown at leftShort
+    with easeinleft
     britta "If you don’t mind a billion miles of corn in every direction, yeah, it was great."
 
 
@@ -179,12 +192,14 @@ label meetGieda:
     scene foodStalls
 
 
-    show miralda puzzled
+    show miralda puzzled at leftish
+    with dissolve
     miralda "Hmm… I’m not seeing a map anywhere."
     miralda "Wait as second, is that…?"
 
 
-    show gieda neutral
+    show gieda neutral at rightish
+    with dissolve
     gieda "..."
 
 
@@ -194,12 +209,13 @@ label meetGieda:
 
     show gieda angry
     gieda "Excuse me? Have we—"
-    show gieda alarmed
+    show gieda alarm
     gieda "Wait… Miralda? Good gods, is that you?"
 
 
     show britta eyeroll
-    britta "Oh, great." 
+    with easeinleft
+    britta "Oh, great."
 
 
     show miralda neutral
@@ -303,11 +319,12 @@ label meetSaorgaine:
     scene foodStalls
 
 
-    show saoirse cheerful
+    show saoirse cheerful at leftish
     saoirse "Morgaine! Morgaine, hi. I-wow."
 
 
-    show morgaine surprised
+    show morgaine surprised at rightish
+    with fastDissolve
     morgaine "Saoirse?"
     morgaine "What are you doing here?"
 
@@ -367,10 +384,16 @@ label meetSaorgaine:
     saoirse "You’re one to talk. I learned it from you."
 
 
-    "A moment passes, then Morgaine’s smile drops. She checks her phone, then gazes searchingly into the crowd."
-
+    # "A moment passes, then Morgaine’s smile drops. She checks her phone, then gazes searchingly into the crowd."
+    show morgaine neutral
+    "..."
+    show morgaine eyeroll
+    "..."
+    show morgaine sad
+    "..."
 
     show saoirse hopeful
+    show morgaine neutral
     saoirse "So...how have you been?"
 
 
@@ -460,7 +483,8 @@ label meetSaorgaine:
     saoirse "Where was your lane then?"
 
 
-    show britta neutral
+    show britta neutral at centerShort
+    with easeinleft
     britta "Yo, this tea is great and all, but could you maybe please perchance get the fuck out of my way?"
 
 
@@ -472,7 +496,8 @@ label meetSaorgaine:
     britta "I like having something to munch on when I eavesdrop, you know?" 
 
 
-    show miralda neutral
+    show miralda neutral at left
+    with easeinleft
     miralda "Morgaine, dear! I didn’t expect to see you out of the house, let alone at an amusement park."
     miralda "You should have told me you were coming; we could have dressed to match!" 
 
@@ -667,13 +692,14 @@ label meetSaorgaine:
 
 label cornmazeStart:
     scene cornMaze
+    with None
 
-
-    show britta surprised
+    show britta surprised at leftish
+    with dissolve
     britta "Wow, looks like half the fair is here."
 
 
-    show miralda puzzled
+    show miralda puzzled at rightish
     miralda "It looks as though they only just opened the maze to visitors." 
     miralda "I’ve also heard this is the biggest corn maze in the tristate area, which explains the crowd." 
 
