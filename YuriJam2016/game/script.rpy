@@ -18,6 +18,10 @@ init:
         xpos .6
         yalign 1.0
         xzoom -1.0
+    transform rightishFlipped:
+        xpos .6
+        yalign 1.0
+        xzoom 1.0
     transform leftShort:
         xpos .1
         yalign 1.0
@@ -217,7 +221,7 @@ label meetGieda:
     miralda "Wait as second, is that…?"
 
 
-    show gieda neutral at rightish
+    show gieda neutral at rightishFlipped
     with dissolve
     gieda "..."
 
