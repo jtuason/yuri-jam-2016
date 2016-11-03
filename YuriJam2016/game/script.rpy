@@ -175,7 +175,9 @@ label start:
     miralda "Should we do that first, or should we refuel with a quick bite?" 
 
 
-    menu: 
+    menu:
+        extend "" # extra line
+        
         "Let’s make a plan.":
 
             show britta neutral
@@ -230,7 +232,7 @@ label meetGieda:
     gieda "Wait… Miralda? Good gods, is that you?"
 
 
-    show britta eyeroll
+    show britta eyeroll at centerShort
     with easeinleft
     britta "Oh, great."
 
@@ -311,7 +313,9 @@ label meetGieda:
     miralda "Fine. Let’s go, Britta. Pick a direction for us." 
 
 
-    menu: 
+    menu:
+        extend "" # extra line
+        
         "I’m starving. Time for some greasy carnival food!" if not metSaorgaine:
             show britta neutral
             britta "All this drama is making me hungry. Let’s go eat!"
@@ -694,6 +698,8 @@ label meetSaorgaine:
 
 
     menu:
+        extend "" # extra line
+        
         "Let’s find a map and figure out what we’re doing next." if not metGieda:
             show britta neutral
             britta "We should do that planning thing we mentioned earlier. You know, scope out the scene."
