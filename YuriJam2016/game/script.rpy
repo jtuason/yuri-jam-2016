@@ -5,9 +5,12 @@
 ## yalign set to 1.0 snaps the image and its anchor to the bottom of the screen.
 ## The negative xzoom flips a sprite horizontally.
 
-## Transforms
+## Initialization block
 
 init:
+    
+    ## Transforms
+    
     transform leftish:
         xpos .1
         yalign 1.0
@@ -19,10 +22,20 @@ init:
         xpos .1
         yalign 1.0
         zoom .8
+    transform centerLeftShort:
+        xpos .2
+        yalign 1.0
+        zoom .8  
     transform centerShort:
         xpos .3
         yalign 1.0
         zoom .8
+        
+    ## Variables
+    
+    $ metSaorgaine = False
+    $ metGieda = False
+
 
 ## Transitions
 
@@ -108,6 +121,8 @@ image morgaine angry = "morgaine_angry.png"
 image morgaine annoyed = "morgaine_annoyed.png"
 image morgaine sad = "morgaine_sad.png"
 
+
+
 ## The game starts here.
 
 label start:
@@ -174,7 +189,7 @@ label start:
             jump meetGieda
 
 
-        "Plans are for nerds. Let’s eat!":
+        "Plans are for nerds. Let’s eat!" if not metSaorgaine:
 
             show britta neutral
             britta "I’m craving some crappy carnival food. I’m gonna find a candied apple stand and shove every one of them up my asshole." 
@@ -188,6 +203,8 @@ label start:
             jump meetSaorgaine
 
 label meetGieda:
+    
+    $ metGieda = True
     
     scene foodStalls
 
@@ -295,7 +312,7 @@ label meetGieda:
 
 
     menu: 
-        "I’m starving. Time for some greasy carnival food!":
+        "I’m starving. Time for some greasy carnival food!" if not metSaorgaine:
             show britta neutral
             britta "All this drama is making me hungry. Let’s go eat!"
             show miralda frown
@@ -315,6 +332,8 @@ label meetGieda:
             jump cornmazeStart
 
 label meetSaorgaine:
+    
+    $ metSaorgaine = True
     
     scene foodStalls
 
@@ -512,10 +531,12 @@ label meetSaorgaine:
     miralda "We’ll just have to settle for the tried and true ’witch and familiar’ combination!" 
 
 
-    show saoirse neutral
+    show saoirse neutral at center
+    with easeinleft
     saoirse "If you had just come as a werewolf like you were supposed to…"
-
-
+    
+    show morgaine neutral at right
+    with easeinleft
     morgaine "Considering I had no idea you were going to be here, I fail to see how that sentiment holds any value."
 
 
@@ -523,11 +544,13 @@ label meetSaorgaine:
     miralda "Costume missteps notwithstanding, you look absolutely delicious, Saoirse. I could just gobble you up!" 
 
 
-    show saoirse flustered
+    show saoirse flustered at rightish
+    with easeinleft
     saoirse "Ah, that’s...um...kind of you."
 
 
-    show britta frown
+    show britta frown at leftShort
+    with easeinright
     britta "Mom, you know these clowns?" 
 
 
@@ -595,7 +618,8 @@ label meetSaorgaine:
     morgaine "Are you real right now, Saoirse?"
 
 
-    show saoirse neutral
+    show saoirse neutral:
+        xzoom 1.0
     saoirse "What? It’s nice."
     saoirse "At least someone wants to spend time with me, for a change."
 
@@ -612,11 +636,13 @@ label meetSaorgaine:
     morgaine "Right."
 
 
-    show saoirse crestfallen
+    show saoirse crestfallen:
+        xzoom -1.0
     saoirse "Wait. So does this mean neither of you will ride the ferris wheel with me?"
 
 
-    show britta grin
+    show britta grin at centerLeftShort
+    with easeinleft
     britta "I don’t count as an older predatory woman, right? I’ll go!" 
 
 
@@ -668,7 +694,7 @@ label meetSaorgaine:
 
 
     menu:
-        "Let’s find a map and figure out what we’re doing next.":
+        "Let’s find a map and figure out what we’re doing next." if not metGieda:
             show britta neutral
             britta "We should do that planning thing we mentioned earlier. You know, scope out the scene."
             show miralda neutral
@@ -694,7 +720,7 @@ label cornmazeStart:
     scene cornMaze
     with None
 
-    show britta surprised at leftish
+    show britta surprised at leftShort
     with dissolve
     britta "Wow, looks like half the fair is here."
 
