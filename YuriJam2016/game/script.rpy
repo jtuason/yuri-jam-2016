@@ -49,8 +49,8 @@ define fastDissolve = Dissolve(.25)
 
 define red = Character('Red', color='#b70505')
 define britta = Character('Britta', color='#ff3300')
-define miralda = Character('Miralda', color='#96197d')
-define gieda = Character('Gieda', color='#2a7c2e')
+define miralda = Character('Miralda', color='#cc3399')
+define gieda = Character('Gieda', color='#6699ff')
 define saoirse = Character('Saoirse', color='#912c3f')
 define morgaine = Character('Morgaine', color='#498425')
 
