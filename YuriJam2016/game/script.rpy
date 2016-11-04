@@ -18,6 +18,18 @@ init:
         xpos .6
         yalign 1.0
         xzoom -1.0
+    transform rightmost:
+        xpos 1.05
+        yalign 1.0
+        xzoom -1.0
+    transform rightFlipped:
+        xpos .75
+        yalign 1.0
+        xzoom -1.0
+    transform  saoirseRight:
+        xpos .7
+        yalign 1.0
+        xzoom 1.0
     transform rightishFlipped:
         xpos .6
         yalign 1.0
@@ -34,6 +46,10 @@ init:
         xpos .3
         yalign 1.0
         zoom .8
+    transform centerRightish:
+        xpos .55
+        yalign 1.0
+        xzoom -1.0
         
     ## Variables
     
@@ -134,12 +150,12 @@ label start:
     scene frontGate
 
 
-    show miralda neutral at rightish
+    show miralda neutral at centerRightish
     with dissolve
     miralda "And here we are! Fall Fling Hallow’s Eve Carnival. That wasn’t too bad a drive, now, was it?" 
 
 
-    show britta frown at leftShort
+    show britta frown at left
     with easeinleft
     britta "If you don’t mind a billion miles of corn in every direction, yeah, it was great."
 
@@ -215,8 +231,8 @@ label meetGieda:
     scene foodStalls
 
 
-    show miralda puzzled at leftish
-    with dissolve
+    show miralda puzzled at left
+    with fade
     miralda "Hmm… I’m not seeing a map anywhere."
     miralda "Wait as second, is that…?"
 
@@ -236,7 +252,7 @@ label meetGieda:
     gieda "Wait… Miralda? Good gods, is that you?"
 
 
-    show britta eyeroll at centerShort
+    show britta eyeroll at center
     with easeinleft
     britta "Oh, great."
 
@@ -251,6 +267,7 @@ label meetGieda:
 
 
     show miralda cheerful
+    show britta angry behind miralda, gieda
     miralda "Twenty-three! Funny how a few drinks can make you forget a few years, isn’t it?"
     miralda "Time really does fly. You hardly look a day uglier, Gieda!" 
 
@@ -347,6 +364,7 @@ label meetSaorgaine:
 
 
     show saoirse cheerful at leftish
+    with fade
     saoirse "Morgaine! Morgaine, hi. I-wow."
 
 
@@ -515,7 +533,10 @@ label meetSaorgaine:
     britta "Yo, this tea is great and all, but could you maybe please perchance get the fuck out of my way?"
 
 
-    show saoirse angry
+    show saoirse angry at left
+    with easeinright
+    show morgaine angry at right
+    with easeinleft
     saoirse "Excuse me?"
 
 
@@ -523,8 +544,9 @@ label meetSaorgaine:
     britta "I like having something to munch on when I eavesdrop, you know?" 
 
 
-    show miralda neutral at left
+    show miralda neutral at leftish
     with easeinleft
+    show britta behind miralda, saoirse, morgaine
     miralda "Morgaine, dear! I didn’t expect to see you out of the house, let alone at an amusement park."
     miralda "You should have told me you were coming; we could have dressed to match!" 
 
@@ -543,22 +565,23 @@ label meetSaorgaine:
     with easeinleft
     saoirse "If you had just come as a werewolf like you were supposed to…"
     
-    show morgaine neutral at right
+    show morgaine neutral at rightmost
     with easeinleft
     morgaine "Considering I had no idea you were going to be here, I fail to see how that sentiment holds any value."
 
 
-    show miralda devious
+    show miralda devious at left
+    with easeinright
     miralda "Costume missteps notwithstanding, you look absolutely delicious, Saoirse. I could just gobble you up!" 
 
 
-    show saoirse flustered at rightish
+    show saoirse flustered at rightFlipped
     with easeinleft
     saoirse "Ah, that’s...um...kind of you."
 
 
-    show britta frown at leftShort
-    with easeinright
+    show britta frown at centerLeftShort
+    with easeinleft
     britta "Mom, you know these clowns?" 
 
 
@@ -626,8 +649,8 @@ label meetSaorgaine:
     morgaine "Are you real right now, Saoirse?"
 
 
-    show saoirse neutral:
-        xzoom 1.0
+    show saoirse neutral at saoirseRight
+    with easeinright
     saoirse "What? It’s nice."
     saoirse "At least someone wants to spend time with me, for a change."
 
@@ -649,8 +672,7 @@ label meetSaorgaine:
     saoirse "Wait. So does this mean neither of you will ride the ferris wheel with me?"
 
 
-    show britta grin at centerLeftShort
-    with easeinleft
+    show britta grin
     britta "I don’t count as an older predatory woman, right? I’ll go!" 
 
 
@@ -658,7 +680,8 @@ label meetSaorgaine:
     morgaine "Look, just stick with me for now, all right?"
 
 
-    show saoirse neutral
+    show saoirse neutral:
+        xzoom 1.0
     saoirse "Not if you’re going to have that attitude all night."
 
 
@@ -684,7 +707,8 @@ label meetSaorgaine:
     morgaine "I promise."
 
 
-    show saoirse cheerful
+    show saoirse cheerful:
+        xzoom -1.0
     saoirse "Good! Now hold my hand so we don’t get separated."
 
 
@@ -728,7 +752,7 @@ label meetSaorgaine:
 
 label cornmazeStart:
     scene cornMaze
-    with None
+    with fade
 
     show britta surprised at leftShort
     with dissolve
