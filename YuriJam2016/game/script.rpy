@@ -754,7 +754,7 @@ label cornmazeStart:
     scene cornMaze
     with fade
 
-    show britta surprised at leftShort
+    show britta surprised at left
     with dissolve
     britta "Wow, looks like half the fair is here."
 
